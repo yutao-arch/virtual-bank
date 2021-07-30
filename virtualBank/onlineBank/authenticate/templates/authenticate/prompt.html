@@ -1,0 +1,13 @@
+{% extends 'authenticate/register.html' %}
+{% block content %}
+<!-- Start Sign In Form -->
+<form action="#" class="fh5co-form animate-box" data-animate-effect="fadeInRight">
+    <div class="form-group" id="prompt">
+        <div class='alert alert-success' role='alert'>你的信息已被保存</div>
+    </div>
+    <div class="form-group" style="text-align:center;">
+        <input type="submit" value="登录" class="btn btn-primary" onclick="re_direct();">
+    </div>
+</form>
+<!-- END Sign In Form -->
+{% endblock %}

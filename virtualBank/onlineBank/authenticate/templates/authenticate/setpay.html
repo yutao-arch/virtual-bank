@@ -1,0 +1,21 @@
+{% extends 'authenticate/register.html' %}
+{% block content %}
+<!-- Start Sign In Form -->
+<form action="#" class="fh5co-form animate-box" data-animate-effect="fadeInRight">
+    <div class="form-group" id="prompt">
+        <div class='alert alert-success' role='alert'>您首次登录，需要设置8位付款密码</div>
+    </div>
+    <div class="form-group">
+        <label for="password" class="sr-only">付款密码</label>
+        <input type="password" class="form-control" id="password" placeholder="付款密码" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="re-password" class="sr-only">再次输入付款密码</label>
+        <input type="password" class="form-control" id="re-password" placeholder="再次输入付款密码" autocomplete="off">
+    </div>
+    <div class="form-group" style="text-align:center;">
+        <input type="submit" value="提交" class="btn btn-primary" onclick="setpay();">
+    </div>
+</form>
+<!-- END Sign In Form -->
+{% endblock %}

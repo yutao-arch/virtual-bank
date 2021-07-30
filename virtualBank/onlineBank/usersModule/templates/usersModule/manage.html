@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--    加载static标签-->
+    {% load static %}
+    <title>虚拟银行</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'images/icons/favicon.ico' %}">
+    <link rel="apple-touch-icon" href="{% static 'images/icons/favicon.png' %}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{% static 'images/icons/favicon-72x72.png' %}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{% static 'images/icons/favicon-114x114.png' %}">
+    <!--Loading bootstrap css-->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/jquery-ui-1.10.4.custom.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/font-awesome.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/bootstrap.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/animate.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/all.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/main.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/style-responsive.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/zabuto_calendar.min.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/pace.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'styles/jquery.news-ticker.css' %}">
+</head>
+
+<body>
+<!--    用于在js中调用，跳转到对应url，相当于调用views中的方法-->
+    <script>
+        window.post_host = "{% url 'su_request' %}";
+        window.home_host = "{% url 'manage' name %}";
+        window.info_host = "{% url 'info' name %}";
+        window.salt_host = "{% url 'salt' name %}";
+        window.name = "{{name}}";
+    </script>
+    <script src="{% static 'script/jquery-1.10.2.min.js' %}"></script>
+    <script src="{% static 'script/jquery-migrate-1.2.1.min.js' %}"></script>
+    <script src="{% static 'script/changebar.js' %}"></script>
+    <!--CORE JAVASCRIPT-->
+    <script src="{% static 'script/main.js' %}"></script>
+    <div>
+        <!--BEGIN BACK TO TOP-->
+        <a id="totop" href="#"><i class="fa fa-angle-up"></i></a>
+        <!--END BACK TO TOP-->
+        <!--BEGIN TOPBAR-->
+        <div id="header-topbar-option-demo" class="page-header-topbar">
+            <nav id="topbar" role="navigation" style="margin-bottom: 0;" data-step="3" class="navbar navbar-default navbar-static-top">
+                <div class="navbar-header">
+                    <button type="button" data-toggle="collapse" data-target=".sidebar-collapse" class="navbar-toggle"><span
+                            class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span
+                            class="icon-bar"></span></button>
+                    <a id="logo" href="{% url 'manage' name %}" class="navbar-brand"><span class="fa fa-rocket"></span><span
+                            class="logo-text">虚拟银行系统</span><span style="display: none" class="logo-text-icon">µ</span></a></div>
+                <div class="topbar-main"><a id="menu-toggle" href="#" class="hidden-xs"><i class="fa fa-bars"></i></a>
+                    <ul class="nav navbar navbar-top-links navbar-right mbn">
+                        <li class="dropdown topbar-user"><a data-hover="dropdown" href="#" class="dropdown-toggle"><img
+                                    src="{{ MEDIA_URL }}{{ image }}" alt="" class="img-responsive img-circle" />&nbsp;<span
+                                    class="hidden-xs"><span style="visibility:hidden;">&nbsp;lllllll</span>{{name}}<span
+                                        style="visibility:hidden;">&nbsp;lllllll</span></span>&nbsp;<span class="caret"></span></a>
+                            <ul class="dropdown-menu dropdown-user pull-right">
+                                <li><a href="{% url 'info' name %}"><i class="fa fa-user"></i>我的个人信息</a></li>
+                                <li><a href="{% url 'logout' name %}"><i class="fa fa-key"></i>退出登录</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <!--END TOPBAR-->
+        <div id="wrapper">
+            <!--BEGIN SIDEBAR MENU-->
+            <nav id="sidebar" role="navigation" data-step="2" data-intro="Template has &lt;b&gt;many navigation styles&lt;/b&gt;"
+                data-position="right" class="navbar-default navbar-static-side">
+                <div class="sidebar-collapse menu-scroll">
+                    <ul id="side-menu" class="nav">
+
+                        <div class="clearfix"></div>
+                        <li class="active" id="home"><a href="{% url 'manage' name %}"><i class="fa fa-tachometer fa-fw">
+                                    <div class="icon-bg bg-orange"></div>
+                                </i><span class="menu-title">我的主页</span></a></li>
+                        <li id="info"><a href="{% url 'info' name %}"><i class="fa fa-th-list fa-fw">
+                                    <div class="icon-bg bg-blue"></div>
+                                </i><span class="menu-title">个人信息</span></a>
+
+                        </li>
+                        <li id="edit"><a href="{% url 'edit' name %}"><i class="fa fa-edit fa-fw">
+                                    <div class="icon-bg bg-violet"></div>
+                                </i><span class="menu-title">修改个人信息</span></a>
+
+                        </li>
+                        <li id="recharge"><a href="{% url 'recharge' name %}"><i class="fa fa-send-o fa-fw">
+                                    <div class="icon-bg bg-green"></div>
+                                </i><span class="menu-title">存款</span></a>
+
+                        </li>
+                        <li id="withdraw"><a href="{% url 'withdraw' name %}"><i class="fa fa-database fa-fw">
+                                    <div class="icon-bg bg-red"></div>
+                                </i><span class="menu-title">取款</span></a>
+
+                        </li>
+                        <li id="transfer"><a href="{% url 'transfer' name %}"><i class="fa fa-gift fa-fw">
+                                    <div class="icon-bg bg-grey"></div>
+                                </i><span class="menu-title">转账</span></a>
+
+                        </li>
+                        <li id="bills"><a href="{% url 'bills' name %}"><i class="fa fa-file-o fa-fw">
+                                    <div class="icon-bg bg-yellow"></div>
+                                </i><span class="menu-title">我的账单</span></a>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--END SIDEBAR MENU-->
+            <!--BEGIN PAGE WRAPPER-->
+            {% block content %}
+            <div id="page-wrapper">
+                <!--BEGIN TITLE & BREADCRUMB PAGE-->
+                <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                    <div class="page-header pull-left">
+                        <div class="page-title">
+                            个人主页</div>
+                    </div>
+                    <ol class="breadcrumb page-breadcrumb pull-right">
+                        <li><i class="fa fa-home"></i>&nbsp;<a href="{% url 'manage' name %}">主页</a>&nbsp;&nbsp;<i
+                                class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+                    </ol>
+                    <div class="clearfix">
+                    </div>
+                </div>
+                <!--END TITLE & BREADCRUMB PAGE-->
+                <!--BEGIN CONTENT-->
+                <div class="page-content">
+                    <div id="tab-general">
+                         <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" data-dismiss="alert" aria-hidden="true" class="close">&times;</button>
+                                            <strong>一个可靠的银行系统，给您五星级服务体验</strong>
+                         </div>
+                        <div class="row mbl">
+                            <div class="col-lg-6">
+                                <div class="panel">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <li>欢迎来到虚拟银行系统：</li>
+                                                <li>小心可疑的支付链接, 请不要透露自己的密码给他人</li>
+                                                <li>请确保自己的网络安全，避免在暴露网络中使用本系统</li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="sum_box" class="row mbl">
+                             <div class="col-sm-6 col-md-3">
+                                  <div class="panel">
+                                    <div class="panel-body">
+                                        <p class="icon">
+                                            <i class="icon fa fa-cloud-download"></i>
+                                        </p>
+                                        <h4 class="value">
+                                            <span id="income">{{income}}</span><span>￥</span></h4>
+                                        <p class="description">
+                                            账户余额</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-3">
+                                 <div class="panel">
+                                    <div class="panel-body">
+                                        <p class="icon">
+                                            <i class="icon fa fa-key"></i>
+                                        </p>
+                                        <h4>
+                                            <span id="outcome">{{outcome}}
+                                            </span><span>￥</span></h4>
+                                        <p class="description">
+                                            总支出</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <script>
+                                counterNum($(".profit h4 span:first-child"), 0, '{{outcome}}', 10, 2);
+                                counterNum($(".income h4 span:first-child"), 0, '{{income}}', 20, 2);
+                            </script>
+                        </div>
+                        <div class="row mbl">
+                        </div>
+                    </div>
+                </div>
+                <!--END CONTENT-->
+                <!--BEGIN FOOTER-->
+                <div id="footer">
+                    <div class="copyright">
+                        <a href="#">2020 © 虚拟银行系统</a> 1180300829 余涛
+                    </div>
+                </div>
+                <!--END FOOTER-->
+            </div>
+            <!--END PAGE WRAPPER-->
+            {% endblock %}
+        </div>
+    </div>
+    <script src="{% static 'script/jquery-ui.js' %}"></script>
+    <script src="{% static 'script/bootstrap.min.js' %}"></script>
+    <script src="{% static 'script/bootstrap-hover-dropdown.js' %}"></script>
+    <script src="{% static 'script/html5shiv.js' %}"></script>
+    <script src="{% static 'script/respond.min.js' %}"></script>
+    <script src="{% static 'script/jquery.metisMenu.js' %}"></script>
+    <script src="{% static 'script/jquery.slimscroll.js' %}"></script>
+    <script src="{% static 'script/jquery.cookie.js' %}"></script>
+    <script src="{% static 'script/icheck.min.js' %}"></script>
+    <script src="{% static 'script/custom.min.js' %}"></script>
+    <script src="{% static 'script/jquery.news-ticker.js' %}"></script>
+    <script src="{% static 'script/jquery.menu.js' %}"></script>
+    <script src="{% static 'script/pace.min.js' %}"></script>
+    <script src="{% static 'script/holder.js' %}"></script>
+    <script src="{% static 'script/responsive-tabs.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.categories.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.pie.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.tooltip.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.resize.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.fillbetween.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.stack.js' %}"></script>
+    <script src="{% static 'script/jquery.flot.spline.js' %}"></script>
+    <script src="{% static 'script/zabuto_calendar.min.js' %}"></script>
+    <script src="{% static 'script/index.js' %}"></script>
+    <script src="{% static 'sha256.js' %}"></script>
+    <script src="{% static 'md5.js' %}"></script>
+    <script src="{% static 'core-min.js' %}"></script>
+    <script src="{% static 'jsencrypt.min.js' %}"></script>
+    <script src="{% static 'getKey.js' %}"></script>
+    <script src="{% static 'script/recharge.js' %}"></script>
+    <script src="{% static 'script/transfer.js' %}"></script>
+    <script src="{% static 'script/edit.js' %}"></script>
+
+</body>
+
+</html>

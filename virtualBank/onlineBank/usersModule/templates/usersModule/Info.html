@@ -1,0 +1,153 @@
+{% extends 'usersModule/manage.html' %}
+{% block content %}
+<script>change("info");</script>
+<style>
+    .file {
+
+        position: relative;
+
+        display: inline-block;
+
+        background: #D0EEFF;
+
+        border: 1px solid #99D3F5;
+
+        border-radius: 4px;
+
+        padding: 4px 12px;
+
+        overflow: hidden;
+
+        color: #1E88C7;
+
+        text-decoration: none;
+
+        text-indent: 0;
+
+        line-height: 20px;
+
+        margin:0 auto;
+
+    }
+
+    .file input {
+
+        position: absolute;
+
+        font-size: 100px;
+
+        right: 0;
+
+        top: 0;
+
+        opacity: 0;
+
+    }
+
+    .file:hover {
+
+        background: #AADFFD;
+
+        border-color: #78C3F3;
+
+        color: #004974;
+
+        text-decoration: none;
+
+    }
+</style>
+
+
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">
+                用户名:{{name}}</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="{% url 'manage' name %}">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">个人信息</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">个人信息</li>
+        </ol>
+        <div class="clearfix">
+        </div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="row mbl">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row mtl">
+                                <div class="col-md-9">
+                                    <div id="generalTabContent" class="tab-content">
+                                        <div id="tab-edit" class="tab-pane fade in active">
+                                            <div class="form-group">
+                                                <div class="text-center mbl"><img src="{{ MEDIA_URL }}{{ image }}" alt=""
+                                                        class="img-responsive" height="48" width="48" style="margin: 0 auto;" /></div>
+                                                <form enctype="multipart/form-data" action="#" method="post" id="upload">
+                                                    {% csrf_token %}
+                                                    <div class="text-center mbl"><a href="javascript:;" class="file">选择文件进行上传
+                                                            <input type="file" name="avatar" id="avatar">
+                                                        </a></div>
+                                                    <div class="text-center mbl">
+                                                        <a href="#" class="btn btn-green" onclick="document.getElementById('upload').submit();return false;"><i class="fa fa-upload"></i>&nbsp;
+                                                            上传头像</a>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <table class="table table-striped table-hover">
+                                                <tbody>
+<!--                                                    <tr>-->
+<!--                                                        <td>状态</td>-->
+<!--                                                        <td><span class="label label-success">活跃</span></td>-->
+<!--                                                    </tr>-->
+                                                    <tr>
+                                                        <td>用户名</td>
+                                                        <td>{{name}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>电话号码</td>
+                                                        <td>{{phone}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>银行卡号</td>
+                                                        <td>{{card}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>注册时间</td>
+                                                        <td>{{time}}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+    <div class="copyright">
+        <a href="#">2020 © 虚拟银行系统</a> 1180300829 余涛</div>
+    </div>
+    <!--END FOOTER-->
+</div>
+<!--END CONTENT-->
+</div>
+<!--END PAGE WRAPPER-->
+{% endblock %}

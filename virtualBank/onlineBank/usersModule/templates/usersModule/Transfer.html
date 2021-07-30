@@ -1,0 +1,141 @@
+{% extends 'usersModule/manage.html' %}
+{% block content %}
+<script>
+    // 身份验证
+    change("transfer");
+    window.verify_host = "{% url 'verify' name %}";
+    var key = localStorage.getItem(window.name);
+    if (key == null) {
+        window.location.href = window.verify_host;
+    }
+</script>
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">
+                转账</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="{% url 'manage' name %}">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">转账</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">转账</li>
+        </ol>
+        <div class="clearfix">
+        </div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="row mbl">
+                <div class="col-lg-12">
+
+                    <div class="col-md-12">
+                        <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12">
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+
+                            <div class="row mtl">
+                                <div class="col-md-9">
+                                    <div id="generalTabContent" class="tab-content">
+                                        <div id="tab-edit" class="tab-pane fade in active">
+                                            <form action="#" class="form-horizontal">
+                                                <h3>转账界面，请注意自身环境安全</h3>
+                                                <div class="form-group" id="prompt">
+                                                    <div class='alert alert-success' role='alert'>请依次输入转账人和收款人的信息</div>
+                                                </div>
+                                                 <div class="alert alert-warning alert-dismissable">
+                                                      <button type="button" data-dismiss="alert" aria-hidden="true" class="close">&times;</button>
+                                                     <strong>请注意!</strong> 请谨慎操作，转账后不可撤回
+                                              </div>
+                                                <h3>转账人</h3>
+
+                                                <div class="form-group"><label class="col-sm-3 control-label">手机号码</label>
+
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-9"><input type="tel" id="phone"
+                                                                    placeholder="必须是11位手机号码" class="form-control" /></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label class="col-sm-3 control-label">支付密码</label>
+
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-9"><input type="password" id="passwd"
+                                                                    placeholder="支付密码" class="form-control" /></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label class="col-sm-3 control-label">再次输入支付密码</label>
+
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-9"><input type="password" id="retype"
+                                                                    placeholder="支付密码" class="form-control" /></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <h3>收款人</h3>
+
+                                                <div class="form-group"><label class="col-sm-3 control-label">手机号码</label>
+
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-9"><input type="text" id="b_phone"
+                                                                    placeholder="必须是11位手机号码" class="form-control" /></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group"><label class="col-sm-3 control-label">转账金额</label>
+
+                                                    <div class="col-sm-9 controls">
+                                                        <div class="row">
+                                                            <div class="col-xs-9"><input type="text"
+                                                                    placeholder="转账金额" id="amount" class="form-control" />
+<!--                                                                <span-->
+<!--                                                                    class="input-group-addon">￥</span>-->
+                                                                 </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <hr />
+                                                <button type="submit" class="btn btn-green btn-block" onclick="transfer();">确认转账</button>
+                                            </form>
+                                        </div>
+                                        <div class="mbxl"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    <!--END CONTENT-->
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+        <div class="copyright">
+            <a href="#">2020 © 虚拟银行系统</a> 1180300829 余涛</div>
+    </div>
+    <!--END FOOTER-->
+</div>
+<!--END PAGE WRAPPER-->
+{% endblock %}

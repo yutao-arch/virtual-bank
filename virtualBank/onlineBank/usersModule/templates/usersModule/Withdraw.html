@@ -1,0 +1,93 @@
+{% extends 'usersModule/manage.html' %}
+{% block content %}
+<script>
+    // 身份验证
+    change("withdraw");
+    window.verify_host = "{% url 'verify' name %}";
+    var key = localStorage.getItem(window.name);
+    if (key == null) {
+        window.location.href = window.verify_host;
+    }
+</script>
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">
+                取款</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="{% url 'manage' name %}">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">取款</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">取款</li>
+        </ol>
+        <div class="clearfix">
+        </div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="row mbl">
+                <div class="col-lg-12">
+
+                    <div class="col-md-12">
+                        <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12">
+                    <div class="col-lg-12">
+                        <div id="generalTabContent" class="tab-content responsive">
+                            <div id="alert-tab" class="tab-pane fade in active">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <h3>取款界面，请注意自身环境安全</h3>
+                                        <!-- Start Sign In Form -->
+                                        <form action="#" class="fh5co-form animate-box" data-animate-effect="fadeInRight">
+                                              <div class="alert alert-warning alert-dismissable">
+                                            <button type="button" data-dismiss="alert" aria-hidden="true" class="close">&times;</button>
+                                            <strong>请注意！</strong> 你将要取款的银行卡号为:{{card}}.
+                                        </div>
+                                            <div class="form-group" id="prompt">
+                                                <div class='alert alert-success' role='alert'>请输入你的取款金额和支付密码（不是登录密码）</div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="amount" class="sr-only">取款金额</label>
+                                                <input type="text" class="form-control" id="amount" placeholder="取款金额"
+                                                    autocomplete="off">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="password" class="sr-only">支付密码</label>
+                                                <input type="password" class="form-control" id="password" placeholder="支付密码"
+                                                    autocomplete="off">
+                                            </div>
+                                            <div class="form-group" style="text-align:center;">
+                                                <input type="submit" value="提交" class="btn btn-primary" onclick="recharge();">
+                                            </div>
+                                        </form>
+                                        <!-- END Sign In Form -->
+                                        <div class="mbxl"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--END CONTENT-->
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+        <div class="copyright">
+            <a href="#">2020 © 虚拟银行系统</a> 1180300829 余涛</div>
+    </div>
+    <!--END FOOTER-->
+</div>
+<!--END PAGE WRAPPER-->
+{% endblock %}

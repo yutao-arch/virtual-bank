@@ -1,0 +1,95 @@
+{% extends 'usersModule/manage.html' %}
+{% block content %}
+<script>change("edit");</script>
+<div id="page-wrapper">
+    <!--BEGIN TITLE & BREADCRUMB PAGE-->
+    <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+        <div class="page-header pull-left">
+            <div class="page-title">
+                修改个人信息</div>
+        </div>
+        <ol class="breadcrumb page-breadcrumb pull-right">
+            <li><i class="fa fa-home"></i>&nbsp;<a href="{% url 'manage' name %}">主页</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="hidden"><a href="#">修改个人信息</a>&nbsp;&nbsp;<i class="fa fa-angle-right"></i>&nbsp;&nbsp;</li>
+            <li class="active">修改个人信息</li>
+        </ol>
+        <div class="clearfix">
+        </div>
+    </div>
+    <!--END TITLE & BREADCRUMB PAGE-->
+    <!--BEGIN CONTENT-->
+    <div class="page-content">
+        <div id="tab-general">
+            <div class="row mbl">
+                <div class="col-lg-12">
+                    <div class="col-md-12">
+                        <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="panel panel-black" style="width: 760px;">
+                            <div class="panel-heading">
+                                个人信息表</div>
+                            <div class="panel-body pan">
+                                <form action="#">
+                                    <div class="form-body pal">
+                                        <div class="form-group">
+                                                    <label for="inputEmail" class="control-label">
+                                                        支付密码</label>
+                                                    <div class="input-icon right">
+                                                        <i class="fa fa-lock"></i>
+                                                        <input id="ppasswd" type="password" placeholder="" class="form-control" /></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputSubject" class="control-label">
+                                                银行卡号</label>
+                                            <div class="input-icon right">
+                                                <i class="fa fa-tag"></i>
+                                                <input id="card" type="text" placeholder="" class="form-control" /></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputSubject" class="control-label">
+                                                手机号码</label>
+                                            <div class="input-icon right">
+                                                <i class="fa fa-phone"></i>
+                                                <input id="phone" type="tel" placeholder="" class="form-control" /></div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inputSubject" class="control-label">
+                                                新的登录密码</label>
+                                            <div class="input-icon right">
+                                                <i class="fa fa-lock"></i>
+                                                <input id="passwd" type="password" placeholder="" class="form-control" /></div>
+                                        </div>
+                                        <div class="form-group mbn">
+                                            <label for="inputSubject" class="control-label">
+                                                旧的支付密码(必填项)</label>
+                                            <div class="input-icon right">
+                                                <i class="fa fa-lock"></i>
+                                                <input id="opasswd" type="password" placeholder="" class="form-control" /></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions text-center pal">
+                                        <button type="submit" class="btn btn-primary" onclick="edit();">
+                                            提交</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--END CONTENT-->
+    <!--BEGIN FOOTER-->
+    <div id="footer">
+        <div class="copyright">
+            <a href="#">2020 © 虚拟银行系统</a> 1180300829 余涛</div>
+    </div>
+    <!--END FOOTER-->
+</div>
+<!--END PAGE WRAPPER-->
+{% endblock %}

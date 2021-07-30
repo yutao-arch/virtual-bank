@@ -1,0 +1,35 @@
+{% extends 'authenticate/register.html' %}
+{% block content %}
+
+<!-- Start Sign In Form -->
+<script>
+    window.temp_salt = "{{temp_salt}}";
+    window.pay_id = "{{pay_id}}";
+    window.pay_host = "{% url 'pay' pay_id %}";
+</script>
+<form action="#" class="fh5co-form animate-box" data-animate-effect="fadeIn">
+    {% csrf_token %}
+    <div class="text-center mbl"><img src="{{ MEDIA_URL }}{{ image }}" alt="" class="img-responsive" height="48" width="48"
+            style="margin: 0 auto;" /></div>
+    <h2 style="text-align:center;">付款金额：{{amount}}</h2>
+    <h2 style="text-align:center;">收款人：{{name}}</h2>
+    <div class="form-group" id="prompt">
+    </div>
+    <div class="form-group">
+        <label for="phone" class="sr-only">手机号</label>
+        <input type="tel" class="form-control" id="phone" placeholder="手机号" autocomplete="off">
+    </div>
+    <div class="form-group">
+        <label for="password" class="sr-only">付款密码</label>
+        <input type="password" class="form-control" id="password" placeholder="付款密码" autocomplete="off">
+    </div>
+    <div class="form-group" style="text-align:center;">
+        <p>还没有注册？<a href="{% url 'register' %}">注册</a>
+        </p>
+    </div>
+    <div class="form-group" style="text-align:center;">
+        <input type="submit" value="提交" class="btn btn-primary" onclick="pay()">
+    </div>
+</form>
+<!-- END Sign In Form -->
+{% endblock %}

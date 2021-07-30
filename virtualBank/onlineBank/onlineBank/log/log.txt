@@ -1,0 +1,14 @@
+20 recharge views 2021-01-05 21:25:44,736 user: YT operation: recharge amount: 10000.0$ 
+20 withdraw views 2021-01-05 21:25:53,414 user: YT operation:withdraw amount:10000.0 $ 
+20 transfer views 2021-01-05 21:26:19,726 user: YT operation:transfer amount:10000.0 $ to beneficiary:18593159223 
+20 pay views 2021-01-05 21:47:58,385 user: YT operation:transfer amount:6297.0 $ to beneficiary:17338202939 
+20 recharge views 2021-01-06 10:57:28,007 user: YT operation: recharge amount: 10000.0$ 
+20 pay views 2021-01-06 11:08:21,309 user: YT operation:transfer amount:6698.0 $ to beneficiary:17338202939 
+20 pay views 2021-01-06 12:01:22,500 user: YT operation:transfer amount:7279.0 $ to beneficiary:17338202939 
+20 withdraw views 2021-01-09 16:50:07,267 user: YT operation:withdraw amount:1000.0 $ 
+20 recharge views 2021-01-09 16:50:23,700 user: YT operation: recharge amount: 10000.0$ 
+20 transfer views 2021-01-09 16:51:11,372 user: CTF operation:transfer amount:1000.0 $ to beneficiary:15586430583 
+20 recharge views 2021-01-09 19:06:18,693 user: YT operation: recharge amount: 10000.0$ 
+20 withdraw views 2021-01-09 19:08:19,196 user: YT operation:withdraw amount:10000.0 $ 
+20 transfer views 2021-01-09 19:12:18,785 user: YT operation:transfer amount:5000.0 $ to beneficiary:18593159223 
+20 pay views 2021-01-09 19:21:38,378 user: YT operation:transfer amount:7279.0 $ to beneficiary:17338202939 
